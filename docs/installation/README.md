@@ -59,6 +59,39 @@ wget -qq -O - https://kernelcare.com/checker | python
 
 More information can be found on the link: [https://www.kernelcare.com/faq/](https://www.kernelcare.com/faq/)
 
+## Offline installation
+
+If, for some reason, your target asset doesn't have connection to public resources there is a way to install kernelcare manually. In this case you have to get installation package appropriate to your distro and its version
+
+:::tip Note
+Assuming that kernelcare patchserver is also unavailable, you could be need to [configure kernelcare client software to use ePortal](/kernelcare_enterprise/#deploying-kernelcare)
+:::
+
+### RPM based distros
+
+Packages repository:
+[https://repo.cloudlinux.com/kernelcare/](https://repo.cloudlinux.com/kernelcare/)
+
+Example:
+
+``` bash
+$ wget https://repo.cloudlinux.com/kernelcare/kernelcare-latest-8.rpm
+$ yum localinstall kernelcare-latest-8.rpm
+```
+
+### DEB based distros
+
+Packages repository:
+[https://repo.cloudlinux.com/kernelcare-debian/](https://repo.cloudlinux.com/kernelcare-debian/)
+
+Example:
+
+``` bash
+$ apt-get install --yes apt-transport-https python-openssl
+$ wget https://repo.cloudlinux.com/kernelcare-debian/kernelcare-latest-9.deb
+$ dpkg -i kernelcare-latest-9.deb
+```
+
 ## Switching from Ksplice
 
 

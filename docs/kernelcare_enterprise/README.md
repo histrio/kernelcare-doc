@@ -22,7 +22,7 @@ As far as other requirements concerned, we have tested the following configurati
 * 10k of connected machines is the maximum for the following requirements:
   * VM
   * 1 VCPU
-  * 1 GB RAM 
+  * 1 GB RAM
 * 75k of connected machines is the maximum for the following requirements:
   * Core i5
   * 1 CPU
@@ -108,6 +108,51 @@ Install KernelCare.eportal:
 $ yum install kcare-eportal
 ```
 
+## Offile installation
+
+Also, EPortal could be installed as an offline package. In this case you have to download the package manually from  [https://repo.eportal.kernelcare.com/x86_64.el7/](https://repo.eportal.kernelcare.com/x86_64.el7/) and install it resolving its dependencies. For example:
+
+```bash
+$ wget https://repo.eportal.kernelcare.com/x86_64.el7/kcare-eportal-1.9-8.el7.cloudlinux.x86_64.rpm
+$ yum localinstall kcare-eportal-1.9-8.el7.cloudlinux.x86_64.rpm
+```
+
+Eportal package has several dependencies that could be failed during installation on an offline server and you should satisfy them yourself.
+
+* bzip2
+* nginx
+* python-uwsgi
+
+Assuming that kernelcare patch server is also unavailable, you could be needed to obtain patch releases as tarballs and unpack them on the eportal server manually.
+
+- Download required releases from the patch server where username and password are patch server credentials
+
+  ```
+  wget --http-user <username> --http-password <password> https://patches.kernelcare.com/patch-download/18102019_1.tar.bz2`
+  ```
+
+- Download and edit the public.list according to downloaded releases
+  ```
+  `wget --http-user <username> --http-password <password> https://patches.kernelcare.com/patch-download/public.list`
+  ```
+
+- Upload gathered files to the eportal server
+
+  ```
+  scp *.tar.bz2 eportal:/repo
+  scp public.list eportal:/repo
+  ```
+
+- Run simple HTTP server
+
+  ```
+  cd /repo && python -m SimpleHTTPServer 8001
+  ```
+
+- Configure eportal to that local server: patch source should be `http://127.0.0.1:8001` without credentials.
+
+After that you should see your available releases and free to rollout on any of them
+
 ## How to adjust proxy on ePortal machine
 
 On the ePortal machine, you should define the same proxy settings as you use in the command line.
@@ -160,15 +205,15 @@ Moreover, when using group authorization you need to make sure that a user with 
 For example, if you’d like to allow access to ePortal server for the users from the `mathematicians` group, you might have a configuration like this:
 
 ```
-URL: ldap://ldap.forumsys.com 
-Filter: dc=example,dc=com??sub?(&(ou=mathematicians)(uniqueMember=uid=%s,dc=example,dc=com)) 
-Connection string: uid=%s,dc=example,dc=com 
+URL: ldap://ldap.forumsys.com
+Filter: dc=example,dc=com??sub?(&(ou=mathematicians)(uniqueMember=uid=%s,dc=example,dc=com))
+Connection string: uid=%s,dc=example,dc=com
 ```
 
 To make any user with any DN to have access to the ePortal server, you might have a configuration like this:
 
 ```
-URL: ldap://ldap.forumsys.com 
+URL: ldap://ldap.forumsys.com
 Connection string: uid=%s,dc=example,dc=com
 ```
 
@@ -194,7 +239,7 @@ You can use URL to adjust security and timeout parameters
 * `strict_check=0` — to disable strict certificate check (enabled by default);
 * `tls=0` — to disable TLS (enabled by default);
 * `timeout=30` (in seconds, 5 by default).
-  
+
 For example, the URL with the security parameters:
 
 ```
@@ -202,7 +247,7 @@ ldap://example.com?strict_check=0&timeout=30&tls=0
 ```
 
 :::tip Note
-* You could use `%s` in both `Connection String` and `Filter` fields as a placeholder for user login. 
+* You could use `%s` in both `Connection String` and `Filter` fields as a placeholder for user login.
 * Each LDAP implementation has its own peculiar properties, so we cannot provide any specific information about LDAP URL configuration because it depends entirely on the exact LDAP server configuration.
 :::
 
@@ -272,7 +317,7 @@ To go to the list of keys, click the KernelCare ePortal logo at the top left.
 * Click a key to go to Servers tab with the list of [servers registered](/kernelcare_enterprise/#managing-servers) under that key. You can also remove servers on that tab.
 
 To create a new registration click _Create_ tab.
-   ![](/images/key-creation_zoom70.png) 
+   ![](/images/key-creation_zoom70.png)
 Fill in the following fields:
 
 * **Key** —  you can provide a key name or leave the field empty, so an automatically generated name will be used
@@ -558,7 +603,7 @@ The deployment process includes:
 To start the automated deployment, you need to specify the following information:
 
 * ePortal server name (or IP) in the `eportal_srv` Ansible variable. Other config file options can be found at [Config Options](/config_options/) and [KernelCare client config file](/kernelcare_enterprise/#kernelcare-client-config-file) (ePortal).
-* an activation key in the `activation_key` Ansible variable. Activation keys can be generated in ePortal as described in [Managing Keys](/kernelcare_enterprise/#managing-keys) (ePortal). 
+* an activation key in the `activation_key` Ansible variable. Activation keys can be generated in ePortal as described in [Managing Keys](/kernelcare_enterprise/#managing-keys) (ePortal).
 
 Ansible playbook for deployment phase may look like:
 
@@ -719,7 +764,7 @@ First of all you need to install `ssmtp`:
 
     yum install -y ssmtp
 
-Edit `/etc/ssmtp/ssmtp.conf` file in accordance with your SMTP server configuration. Here is a simple config file describing a common way to connect to Gmail accounts: 
+Edit `/etc/ssmtp/ssmtp.conf` file in accordance with your SMTP server configuration. Here is a simple config file describing a common way to connect to Gmail accounts:
 
     root=username@gmail.com
     mailhub=smtp.gmail.com:587
