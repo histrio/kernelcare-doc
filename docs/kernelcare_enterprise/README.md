@@ -785,4 +785,16 @@ For example, to disable the default https verification you can set the `PYTHONHT
 echo 0 > /usr/share/kcare-eportal/environment/PYTHONHTTPSVERIFY`
 ```
 
+## SElinux
+
+There is a package for the case when SELinux is enabled on the server and it's default politics don't let Nginx run properly. To install that package you can run:
+```
+sudo yum install -y eportal-selinux
+```
+
+and restart nginx
+```
+sudo systemctl restart nginx
+```
+
 <Disqus/>
