@@ -127,6 +127,10 @@ chown nginx:nginx /usr/share/kcare-eportal/config/local.py
 
 Restart ePortal (see [Stopping & Starting](/kernelcare-enterprise/#stopping-starting) section, choose a corresponding OS).
 
+### KernelCare.ePortal on Docker
+
+Also we have an option to run eportal as containerised application. All information could be found [here](https://hub.docker.com/r/kernelcare/eportal).
+
 ## Managing Users
 
 
