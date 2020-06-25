@@ -127,6 +127,8 @@ chown nginx:nginx /usr/share/kcare-eportal/config/local.py
 
 Restart ePortal (see [Stopping & Starting](/kernelcare-enterprise/#stopping-starting) section, choose a corresponding OS).
 
+Note: if your proxy works only with whitelisted hostnames, add `downloads.kernelcare.com` and `repo.cloudlinux.com` to the whitelist.
+
 ## Managing Users
 
 
