@@ -357,6 +357,16 @@ If you need to update other feeds that are marked for auto update instead of the
 
 Note, that the latter command will update only feeds that meet the "_deploy after_" criteria.
 
+
+### Script to deploy release from a file
+
+There is an option to deploy release from file that was downloaded to the eportal server manually, in case of patch server is not accessible.
+
+```
+>kc.eportal --deploy 110202_1.tar.bz2
+```
+
+
 ### Unroll patches from UI
 
  
