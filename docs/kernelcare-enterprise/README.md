@@ -373,7 +373,7 @@ If you need to update other feeds that are marked for auto update instead of the
 
 Note, that the latter command will update only feeds that meet the "_deploy after_" criteria.
 
-### Script to deploy patchset from a file
+### Script to deploy release from a file
 
 If you have no opportunity to connect your ePortal server to the KernelCare patch server, you can install it manually:
 
