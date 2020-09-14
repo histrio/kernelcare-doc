@@ -21,4 +21,3 @@ kcarectl behavior can be configured using `/etc/sysconfig/kcare/kcare.conf`
 |`REPORT_FQDN=True|False` | Force using Fully Qualified Domain as a hostname. False by default.|
 |`FORCE_GID=N`|Use this group ID for symlink protection patch. By default, it's 48 (default Apache user GID) or 99 (`nobody` user)|
 
-<Disqus/>

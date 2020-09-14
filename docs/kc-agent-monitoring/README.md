@@ -207,4 +207,3 @@ datadog-agent check kernelcare
 After the integration is installed and launched you can login to DataDog dashboard to check metrics.
 
 
-<Disqus/>

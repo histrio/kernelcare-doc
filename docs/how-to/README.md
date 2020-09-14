@@ -387,4 +387,3 @@ The new license key should have the following format: `xxxxxxxxxxxxxxxx`. It wil
 
 This is it!
 
-<Disqus/>

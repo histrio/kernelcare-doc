@@ -57,4 +57,3 @@ You can edit your profile information by clicking on **Profile** section. Edit t
 ![](/images/reseller5.jpg)
 ![](/images/reseller006.jpg)
 
-<Disqus/>

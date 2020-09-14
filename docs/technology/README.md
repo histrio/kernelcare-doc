@@ -5,4 +5,3 @@ The kernel module is released under GPL2, and you can download it on the followi
 
 Other components are distributed in binary only format under KernelCare License.
 
-<Disqus/>

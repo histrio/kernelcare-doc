@@ -24,4 +24,4 @@ Patches that can be disabled:
 |Patch |  _sysctl_ option|
 |CVE-2015-5157 | kcare_modify_ldt|
 
-<Disqus/>
+

@@ -97,4 +97,4 @@ The script will exit with exit code `0` and message _Done_ on success. Otherwise
 
 Complete log file can be found at `/var/log/ksplice2kcare.log`.
 
-<Disqus/>
+

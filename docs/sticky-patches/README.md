@@ -31,4 +31,4 @@ Once you are happy with this patches, set the same Sticky Tag for Production ser
 You can choose any date within the last 60 days. You cannot choose today's date or date in the future.
 :::
 
-<Disqus/>
+

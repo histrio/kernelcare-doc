@@ -75,4 +75,3 @@ The command generates a report and prints out the ID which could be linked to a 
 If there was some connection problem during report uploading, the report will be stored locally as `/root/cl-report`. This file should be sent to the support team manually.
 :::
 
-<Disqus/>
